@@ -311,6 +311,8 @@ class Requester:
     def __addParametersToUrl(self, url, parameters):
         if len(parameters) == 0:
             return url
+        elif "?" in url:
+            return url + "&" + urllib.urlencode(parameters)
         else:
             return url + "?" + urllib.urlencode(parameters)
 
